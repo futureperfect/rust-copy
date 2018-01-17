@@ -12,7 +12,10 @@ fn main() {
         process::exit(1); 
     }
 
-    match fs::copy(&args[1], &args[2]) {
+    let source = &args[1];
+    let destination = &args[2];
+
+    match fs::copy(source, destination) {
         Ok(..) => process::exit(0),
         Err(e) => {
             eprintln!("Error: {}", e);
